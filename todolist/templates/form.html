@@ -1,0 +1,11 @@
+{% load bootstrap4 %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {% buttons %}
+    <button>
+        {{ submit_label|default:"Submit" }}
+    </button>
+    {% endbuttons %}
+
+</form>

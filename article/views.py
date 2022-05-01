@@ -8,12 +8,6 @@ from article.forms import ArticleForm
 from article.models import Article
 
 
-# def indexList(request):
-#     lists = Article.objects.all()
-#     return render(request, 'index.html', {
-#         'lists': lists
-#     })
-
 def create_todo(request):
 
     lists = Article.objects.all()
@@ -42,13 +36,9 @@ def create_todo(request):
     })
 
 
-    # content = request.POST['todoContent']
-    # new_todo = Article(todo=content)
-    # new_todo.save()
-    # return HttpResponseRedirect(reverse('index'))
+def delete_todo(request, id):
 
-
-def delete_todo(request):
-    id = request.GET['todoId']
     findTodo = Article.objects.get(id=id)
     findTodo.delete()
+
+    return HttpResponseRedirect(reverse('create_todo'))

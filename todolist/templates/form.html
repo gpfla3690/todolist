@@ -1,11 +1,20 @@
 {% load bootstrap4 %}
-
-<form action="" method="post">
-    {% csrf_token %}
-    {% buttons %}
-    <button>
-        {{ submit_label|default:"Submit" }}
-    </button>
-    {% endbuttons %}
-
-</form>
+<div class="container">
+    <div class="">
+        <form action="" method="post" class="w-100">
+            {% csrf_token %}
+            <div class="input-group mb-3 w-100">
+                <div class="d-flex w-full" style="flex-grow: 1;">
+                    {% bootstrap_form form %}
+                </div>
+                <div class="mx-3">
+                    {% buttons %}
+                        <button class="btn btn-outline-secondary">
+                            {{ submit_label|default:"Submit" }}
+                        </button>
+                    {% endbuttons %}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

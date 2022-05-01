@@ -8,3 +8,7 @@
 body{
     font-family: 'paybooc-Bold';
 }
+
+.form-group{
+    width: 100%;
+}

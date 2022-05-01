@@ -9,14 +9,29 @@
 <body>
 
     {% block content %}
-
-        <h1>인덱스 페이지 입니다.</h1>
-
-        <div class="">
+        <div class="mt-5">
             {% include "form.html" with submit_label="생성" %}
         </div>
 
+        <div class="card" style="width: 100%;">
+          <ul class="list-group list-group-flush">
+              {% for list in lists %}
+            <li class="list-group-item d-flex">
+                <span class="d-flex align-items-center" style="flex-grow: 1">
+                    {{list.todo}}
+                </span>
+                <span class="d-flex justify-content-end">
+                    <a href="#">
+                        <button type="button" class="btn btn-outline-danger">삭제</button>
+                    </a>
+                </span>
+            </li>
+              {% endfor %}
+          </ul>
+        </div>
+
     {% endblock %}
+
 
 
 

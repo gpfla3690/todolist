@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% load bootstrap4 %}
+<div class="container">
+    <div class="">
+        <form action="" method="post" class="w-100">
+            {% csrf_token %}
+            <div class="input-group mb-3 w-100">
+                <div class="d-flex w-full" style="flex-grow: 1;">
+                    <input type="text" name="todo" value="{{todo.todo}}">
+                </div>
+                <div class="mx-3">
+                    {% buttons %}
+                        <button class="btn btn-outline-secondary">
+                            {{ submit_label|default:"Submit" }}
+                        </button>
+                    {% endbuttons %}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

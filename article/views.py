@@ -42,3 +42,32 @@ def delete_todo(request, id):
     findTodo.delete()
 
     return HttpResponseRedirect(reverse('create_todo'))
+
+
+def update_todo(request, id):
+
+    todo = Article.objects.get(id=id)
+
+    if request.method == 'GET':
+        return render(request, 'update.html', {
+            "todo": todo
+        })
+
+    if request.method == 'POST':
+        todo.todo = request.POST["todo"]
+        todo.save()
+        return HttpResponseRedirect(reverse('create_todo'))
+    else:
+        return HttpResponseRedirect(reverse('create_todo'))
+
+
+
+
+
+
+
+
+
+
+
+

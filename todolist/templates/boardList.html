@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<div class="jumbotron">
+    {% for board in boards %}
+      <h1 class="display-4">{{board.content_type}}</h1>
+      <p class="lead">제목 : {{board.title}}</p>
+      <hr class="my-4">
+      <p>내용 : {{board.content}}</p>
+      <p>{{board.regDate}}</p>
+    {% endfor %}
+</div>
+{% endblock %}
+</body>
+</html>
